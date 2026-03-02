@@ -6,9 +6,15 @@
   <title>PORTFOLIO — DESIGN STUDIO</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Barlow+Condensed:wght@300;400;600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="K3Yicon.ico">
 </head>
 <body>
+
+  <!-- LOADING -->
+  <div id="loading-screen" style="display:none;position:fixed;inset:0;background:#0a0a0a;z-index:9000;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:3rem;color:#f5f5f5;letter-spacing:.1em;">KRFT<span style="color:#ff3c00;">.</span></div>
+    <div style="width:120px;height:2px;background:#1a1a1a;overflow:hidden;"><div style="height:100%;background:#ff3c00;animation:loadbar 1.2s ease-in-out infinite;"></div></div>
+    <style>@keyframes loadbar{0%{width:0;margin-left:0}50%{width:100%;margin-left:0}100%{width:0;margin-left:100%}}</style>
+  </div>
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
@@ -23,7 +29,8 @@
       <a href="#about">Sobre</a>
       <a href="#featured">Destaque</a>
       <a href="#gallery">Galeria</a>
-      <button class="admin-btn" onclick="openLogin()">ADMIN</button>
+      <!-- link do painel não é exibido publicamente -->
+      <a id="panel-link" style="display:none" href="admin.html"></a>
     </nav>
   </header>
 
@@ -45,14 +52,7 @@
 
 Este texto aparece na seção "Sobre" do seu portfólio.
 Você pode editá-lo diretamente pelo painel de administração.</p>
-    <button class="about-edit-btn" id="about-edit-btn" onclick="toggleAboutEdit()">✏ EDITAR DESCRIÇÃO</button>
-    <div class="about-edit-area" id="about-edit-area">
-      <textarea id="about-textarea"></textarea>
-      <div class="about-edit-btns">
-        <button class="btn-primary" style="width:auto;padding:10px 20px;" onclick="saveAbout()">SALVAR</button>
-        <button class="btn-secondary" onclick="toggleAboutEdit()">CANCELAR</button>
-      </div>
-    </div>
+  
   </section>
 
   <!-- FEATURED / PODIUM -->
@@ -91,135 +91,7 @@ Você pode editá-lo diretamente pelo painel de administração.</p>
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   </div>
 
-  <!-- LOGIN -->
-  <div class="login-overlay" id="login-overlay">
-    <div class="login-box">
-      <h3>⬡ ADMIN</h3>
-      <p>// PAINEL DE CONTROLE</p>
-      <div style="margin-bottom:15px;">
-        <label>SENHA</label>
-        <input type="password" id="login-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-      </div>
-      <button class="btn-primary" onclick="doLogin()">ENTRAR</button>
-      <p class="login-error" id="login-error">Senha incorreta.</p>
-      <button class="btn-secondary" style="margin-top:15px;width:100%;" onclick="closeLogin()">CANCELAR</button>
-    </div>
-  </div>
 
-  <!-- ADMIN PANEL -->
-  <div id="admin-panel">
-    <div class="admin-header">
-      <div class="admin-title">⬡ PAINEL DE CONTROLE</div>
-      <button class="admin-close" onclick="closeAdmin()">✕ FECHAR</button>
-    </div>
-    <div class="admin-body">
-
-      <!-- TEXTOS -->
-      <div class="admin-section">
-        <h3>✏ TEXTOS DO PORTFÓLIO</h3>
-        <div class="form-row full">
-          <label>TAGLINE (HERO)</label>
-          <input type="text" id="admin-tagline" placeholder="Artes que falam por si...">
-        </div>
-        <div class="form-row full">
-          <label>DESCRIÇÃO (SOBRE)</label>
-          <textarea id="admin-about" rows="5" placeholder="Texto da seção Sobre..."></textarea>
-        </div>
-        <button class="btn-primary" onclick="saveTexts()">SALVAR TEXTOS</button>
-      </div>
-
-      <!-- CATEGORIAS -->
-      <div class="admin-section">
-        <h3>🏷 CATEGORIAS</h3>
-        <div class="form-row">
-          <div>
-            <label>NOVA CATEGORIA</label>
-            <input type="text" id="new-cat-input" placeholder="ex: Artes de 2025" onkeydown="if(event.key==='Enter')addCategory()">
-          </div>
-          <div style="display:flex;align-items:flex-end;">
-            <button class="btn-primary" onclick="addCategory()" style="margin-top:0;">ADICIONAR</button>
-          </div>
-        </div>
-        <div class="categories-list" id="admin-cats-list"></div>
-      </div>
-
-      <!-- ADICIONAR ARTE -->
-      <div class="admin-section">
-        <h3>➕ ADICIONAR ARTE</h3>
-        <div class="form-row">
-          <div>
-            <label>NOME DA ARTE</label>
-            <input type="text" id="new-art-name" placeholder="Nome do projeto">
-          </div>
-          <div>
-            <label>CATEGORIA</label>
-            <select id="new-art-cat"><option value="">Selecione...</option></select>
-          </div>
-        </div>
-        <div class="form-row full">
-          <label>DESCRIÇÃO</label>
-          <textarea id="new-art-desc" placeholder="Breve descrição desta arte..."></textarea>
-        </div>
-        <div class="form-row full">
-          <label>IMAGEM</label>
-          <div class="upload-zone" onclick="document.getElementById('art-file').click()">
-            <p>Clique para selecionar imagem<br><span>// PNG, JPG, WEBP</span></p>
-            <input type="file" id="art-file" accept="image/*" style="display:none" onchange="previewImage(this)">
-            <img class="upload-preview" id="upload-preview">
-          </div>
-        </div>
-        <button class="btn-primary" onclick="addArt()">ADICIONAR ARTE</button>
-      </div>
-
-      <!-- PÓDIO -->
-      <div class="admin-section">
-        <h3>🏆 CONFIGURAR PÓDIO</h3>
-        <div class="podium-selects">
-          <div class="podium-slot">
-            <label>🥇 1º LUGAR</label>
-            <select id="podium-1"></select>
-          </div>
-          <div class="podium-slot">
-            <label>🥈 2º LUGAR</label>
-            <select id="podium-2"></select>
-          </div>
-          <div class="podium-slot">
-            <label>🥉 3º LUGAR</label>
-            <select id="podium-3"></select>
-          </div>
-        </div>
-        <button class="btn-primary" onclick="savePodium()">SALVAR PÓDIO</button>
-      </div>
-
-      <!-- TROCAR SENHA -->
-      <div class="admin-section">
-        <h3>🔒 ALTERAR SENHA</h3>
-        <div class="form-row">
-          <div>
-            <label>SENHA ATUAL</label>
-            <input type="password" id="pw-current" placeholder="••••••••">
-          </div>
-          <div>
-            <label>NOVA SENHA</label>
-            <input type="password" id="pw-new" placeholder="••••••••">
-          </div>
-        </div>
-        <div class="form-row full">
-          <label>CONFIRMAR NOVA SENHA</label>
-          <input type="password" id="pw-confirm" placeholder="••••••••">
-        </div>
-        <p class="pw-error" id="pw-error"></p>
-        <button class="btn-primary" onclick="changePassword()">ALTERAR SENHA</button>
-      </div>
-
-      <!-- GERENCIAR ARTES -->
-      <div class="admin-section">
-        <h3>🗂 ARTES CADASTRADAS</h3>
-        <div class="admin-arts-list" id="admin-arts-list"></div>
-      </div>
-
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
