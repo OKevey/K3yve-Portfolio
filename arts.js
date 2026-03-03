@@ -55,7 +55,7 @@ const ARTS = [
    Edite os textos do portfólio aqui.
    ============================================= */
 const CONFIG = {
-  name:     'KRFT.',                  // Nome/logo no header e footer
+  name:     'K3Y.',                  // Nome/logo no header e footer
   tagline:  'Artes que falam por si. Covers, flyers e identidade visual com pegada streetwear.',
   about:    'Escreva aqui sobre você e seu trabalho. Fale sobre sua trajetória, estilo e inspirações.',
 };
