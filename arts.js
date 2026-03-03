@@ -38,6 +38,16 @@ const ARTS = [
   //   featured:    1
   // },
 
+
+   {
+      id:          'exemplo-01',
+      file:        'arts/DJ K3YVE PFP for spotify.png',
+      name:        'Exemplo 01',
+      description: 'Descrição da arte exemplo.',
+      category:    'Artes 2025',
+      featured:    1
+   },
+
 ];
 
 /* =============================================
