@@ -57,5 +57,5 @@ const ARTS = [
 const CONFIG = {
   name:     'K3Y.',                  // Nome/logo no header e footer
   tagline:  'All rights Reserved.',
-  about:    'Escreva aqui sobre você e seu trabalho. Fale sobre sua trajetória, estilo e inspirações.',
+  about:    '',
 };
