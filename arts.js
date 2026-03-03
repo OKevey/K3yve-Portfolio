@@ -41,7 +41,7 @@ const ARTS = [
 
    {
       id:          '1',
-      file:        'arts/MONTAGEM, XONADA.png',
+      file:        'arts/MONTAGEM XONADA.png',
       name:        'MONTAGEM XONADA',
       description: 'Art made for DJ Javi26, MXZI, Dj Samir | Lunar media',
       category:    '2025 ARTS',
@@ -50,7 +50,7 @@ const ARTS = [
 
   {
       id:          '2',
-      file:        'arts/MONTAGEM, LADRAO.png',
+      file:        'arts/MONTAGEM LADRAO.png',
       name:        'MONTAGEM LADRÃO',
       description: 'Art made For ATLXS, MXZI | Rubix Records',
       category:    '2025 ARTS',
@@ -59,7 +59,7 @@ const ARTS = [
 
   {
       id:          '3',
-      file:        'arts/MONTAGEM, SUPERSONIC.png',
+      file:        'arts/MONTAGEM SUPERSONIC.png',
       name:        'MONTAGEM SUPERSONIC',
       description: 'Art made For KHAOS, Jmilton, Mc jajá | Rubix Records',
       category:    '2025 ARTS',
