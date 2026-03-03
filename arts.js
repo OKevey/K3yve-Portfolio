@@ -39,14 +39,14 @@ const ARTS = [
   // },
 
 
-   {
-      id:          'exemplo-01',
-      file:        'arts/DJ K3YVE PFP for spotify.png',
-      name:        'Exemplo 01',
-      description: 'Descrição da arte exemplo.',
-      category:    'Artes 2025',
-      featured:    1
-   },
+  // {
+  //    id:          'exemplo-01',
+  //    file:        'arts/DJ K3YVE PFP for spotify.png',
+  //    name:        'Exemplo 01',
+  //    description: 'Descrição da arte exemplo.',
+  //    category:    'Artes 2025',
+  //    featured:    1
+   //},
 
 ];
 
@@ -56,6 +56,6 @@ const ARTS = [
    ============================================= */
 const CONFIG = {
   name:     'K3Y.',                  // Nome/logo no header e footer
-  tagline:  'Artes que falam por si. Covers, flyers e identidade visual com pegada streetwear.',
+  tagline:  'All rights Reserved.',
   about:    'Escreva aqui sobre você e seu trabalho. Fale sobre sua trajetória, estilo e inspirações.',
 };

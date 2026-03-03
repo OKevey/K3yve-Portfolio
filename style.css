@@ -138,7 +138,7 @@ header {
 }
 .logo span { color: var(--accent); }
 .logo::after {
-  content: 'STUDIO';
+  content: 'Designer.';
   position: absolute;
   bottom: -14px; left: 0;
   font-family: 'Space Mono', monospace;
@@ -190,6 +190,18 @@ nav a:hover { color: var(--white); }
   overflow: hidden;
 }
 
+/* .hero-character {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  height: 80%;
+  object-fit: contain;
+  opacity: 0.20;
+  pointer-events: none;
+  user-select: none;
+  filter: grayscale(1) sepia(0.8) hue-rotate(10deg) saturate(6) brightness(0.6);
+}
+*/
 .hero-bg-text {
   position: absolute;
   font-family: 'Bebas Neue', sans-serif;
